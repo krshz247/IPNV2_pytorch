@@ -35,7 +35,7 @@ class BatchDatset:
         self.pos_start = 0
 
     def read_images(self):
-        if not os.path.exists(os.path.join(self.saveroot, self.dataclass+"data.hdf5")):
+        if not os.path.exists(os.path.join(self.saveroot, self.dataclass + "data.hdf5")):
             print(self.dataclass + "picking ...It will take some minutes")
             modality_num = -1
             for modality in self.filelist.keys():
