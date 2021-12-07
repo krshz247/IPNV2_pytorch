@@ -59,8 +59,8 @@ def read_dataset_post(data_dir, feature_dir, trainids, valids, modality):
     datasetlist['train'].update({'label': {}})
     for ct in ctlist[trainids[0]:trainids[1]]:
         datasetlist['train']['feature'].update({ct: {}})
-        datasetlist['train']['feature'][ct] = os.path.join(feature_dir, ct+'.npy')
+        datasetlist['train']['feature'][ct] = os.path.join(feature_dir, ct + '.npy')
         datasetlist['train']['label'].update({ct: {}})
-        datasetlist['train']['label'][ct] = os.path.join(data_dir, modality[-1], ct+'.bmp')
+        datasetlist['train']['label'][ct] = os.path.join(data_dir, modality[-1], ct + '.bmp')
     train_records = datasetlist['train']
     return train_records
