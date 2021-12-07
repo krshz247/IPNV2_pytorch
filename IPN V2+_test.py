@@ -30,7 +30,7 @@ def test_net(net, device):
         result = pred[0, 1, :, :].cpu().detach().numpy()*255
         misc.imsave(os.path.join(test_results, cube + ".bmp"), result.astype(np.uint8))
         featuremap = np.squeeze(featuremap.cpu().detach().numpy(), 0)
-        #io.savemat(os.path.join('logs/Features_V2+', cube + ".mat"), {'feature': featuremap})
+        # io.savemat(os.path.join('logs/Features_V2+', cube + ".mat"), {'feature': featuremap})
         print(cube)
 
 
@@ -55,7 +55,7 @@ if __name__ == '__main__':
                                 natsort.natsorted(os.listdir(os.path.join(opt.saveroot, 'best_model_V2+')))[-1]) + '/' + \
         os.listdir(bestmodelpath)[0]
     print(restore_path)
-    #restore_path = os.path.join(opt.saveroot, 'checkpoints_V2+', '4800.pth')
+    # restore_path = os.path.join(opt.saveroot, 'checkpoints_V2+', '4800.pth')
     net.load_state_dict(
         torch.load(restore_path, map_location=device)
     )

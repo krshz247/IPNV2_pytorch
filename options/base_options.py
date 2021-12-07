@@ -1,5 +1,6 @@
-#a few codes come from https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix
+# a few codes come from https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix
 import argparse
+
 
 class BaseOptions():
     """This class defines options used during both training and test time.
@@ -18,20 +19,18 @@ class BaseOptions():
         parser.add_argument('--gpu_ids', type=str, default='0', help='gpu ids')
         parser.add_argument('--method', type=str, default='IPN_V2', help='IPN,IPN_V2')
         parser.add_argument('--plane_perceptron', type=str, default='UNet', help='UNet,UNet_3Plus')
-        parser.add_argument('--train_ids',type=list,default=[0,180],help='train id number')
-        parser.add_argument('--val_ids',type=list,default=[180,200],help='val id number')
-        parser.add_argument('--test_ids',type=list,default=[200,300],help='test id number')
-        parser.add_argument('--modality_filename', type=list, default=['OCT','OCTA','Label_RV'], help='dataset filename, last name is label filename')
-        parser.add_argument('--data_size', type=list, default=[640,400,400], help='input data size separated with comma')
-        parser.add_argument('--block_size', type=list, default=[160,100,100], help='crop size separated with comma')
+        parser.add_argument('--train_ids', type=list, default=[0, 180], help='train id number')
+        parser.add_argument('--val_ids', type=list, default=[180, 200], help='val id number')
+        parser.add_argument('--test_ids', type=list, default=[200, 300], help='test id number')
+        parser.add_argument('--modality_filename', type=list, default=['OCT', 'OCTA', 'Label_RV'], help='dataset filename, last name is label filename')
+        parser.add_argument('--data_size', type=list, default=[640, 400, 400], help='input data size separated with comma')
+        parser.add_argument('--block_size', type=list, default=[160, 100, 100], help='crop size separated with comma')
         parser.add_argument('--in_channels', type=int, default=2, help='input channels')
         parser.add_argument('--channels', type=int, default=64, help='channels')
         parser.add_argument('--plane_perceptron_channels', type=int, default=64, help='post_channels')
         parser.add_argument('--saveroot', default='logs', help='path to save results')
         parser.add_argument('--n_classes', type=int, default=2, help='fianl class number for classification')
-        parser.add_argument('--feature_dir', default='./logs/Features_V2',help='feature_dir')
-
-
+        parser.add_argument('--feature_dir', default='./logs/Features_V2', help='feature_dir')
 
         self.initialized = True
         return parser
@@ -71,6 +70,3 @@ class BaseOptions():
         self.print_options(opt)
         self.opt = opt
         return self.opt
-
-
-
